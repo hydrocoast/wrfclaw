@@ -61,11 +61,11 @@ def setrun(claw_pkg='geoclaw'):
     clawdata.num_dim = num_dim
 
     # Lower and upper edge of computational domain:
-    clawdata.lower[0] = -1.8    # west longitude
-    clawdata.upper[0] =  1.8    # east longitude
+    clawdata.lower[0] = 0.0    # west longitude
+    clawdata.upper[0] = 3.6    # east longitude
 
-    clawdata.lower[1] = -1.8    # south latitude
-    clawdata.upper[1] =  1.8    # north latitude
+    clawdata.lower[1] = 0.0    # south latitude
+    clawdata.upper[1] = 3.6    # north latitude
 
     # Number of grid cells:
     clawdata.num_cells[0] = 30
@@ -319,9 +319,9 @@ def setrun(claw_pkg='geoclaw'):
     # Bigger region for stability with wind fields, no refinement
     
     # gauges 
-    rundata.gaugedata.gauges.append([1, 1.0, 0.0, 0., 1.e10])
-    rundata.gaugedata.gauges.append([2, 0.0, 0.0, 0., 1.e10])
-    rundata.gaugedata.gauges.append([3, -1.0, 0.0, 0., 1.e10])
+    rundata.gaugedata.gauges.append([1, 2.4, 0.0, 0., 1.e10])
+    rundata.gaugedata.gauges.append([2, 1.8, 0.0, 0., 1.e10])
+    rundata.gaugedata.gauges.append([3, 1.2, 0.0, 0., 1.e10])
 
     #------------------------------------------------------------------
     # GeoClaw specific parameters:
