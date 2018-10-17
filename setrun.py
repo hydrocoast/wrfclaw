@@ -317,23 +317,8 @@ def setrun(claw_pkg='geoclaw'):
     # to specify regions of refinement append lines of the form
     #  [minlevel,maxlevel,t1,t2,x1,x2,y1,y2]
     # Bigger region for stability with wind fields, no refinement
-    #regions.append([1, 1, clawdata.t0, clawdata.tfinal, 107, 159, 11, 52])
     
-    # Target simulation domain
-    # D1 (+ lat to Notth a bit)
-    #regions.append([1, 2, clawdata.t0, clawdata.tfinal, 117, 149, 21, 45.5])
-    # D2
-    #regions.append([1, 4, clawdata.t0, clawdata.tfinal, 128, 141, 31, 36])
-    # D3,4
-    #regions.append([1, 5, clawdata.t0, clawdata.tfinal, 131, 135.5, 32.5, 34.8])
-    #regions.append([1, 5, clawdata.t0, clawdata.tfinal, 136.5, 141, 34.5, 35.8])
-    # important bays
-    #regions.append([1, 6, clawdata.t0, clawdata.tfinal, 129.5, 131, 32, 33.5])
-    #regions.append([1, 6, clawdata.t0, clawdata.tfinal, 130, 131.5, 31, 32])
-    #regions.append([1, 6, clawdata.t0, clawdata.tfinal, 131, 135.5, 33.3, 34.8])
-    #regions.append([1, 6, clawdata.t0, clawdata.tfinal, 136.5, 139, 34.5, 35.5])
-    #regions.append([1, 6, clawdata.t0, clawdata.tfinal, 139, 141, 34.8, 35.8])
-    #rundata.gaugedata.gauges.append([1, -86.392, -17.975, 0., 1.e10])
+    # gauges 
     rundata.gaugedata.gauges.append([1, 1.0, 0.0, 0., 1.e10])
     rundata.gaugedata.gauges.append([2, 0.0, 0.0, 0., 1.e10])
     rundata.gaugedata.gauges.append([3, -1.0, 0.0, 0., 1.e10])
@@ -421,16 +406,6 @@ def setgeo(rundata):
     # == fgmax.data values ==
     #fgmax_files = rundata.fgmax_data.fgmax_files
     # for fixed grids append to this list names of any fgmax input files
-    #fgmax_files.append('fgmax1.txt')
-    #rundata.fgmax_data.num_fgmax_val = 1 # Save depth only 1    
-    #fgmax_files.append('fgmax2.txt')
-    #rundata.fgmax_data.num_fgmax_val = 1 # Save depth only 1
-    #fgmax_files.append('fgmax3.txt')
-    #rundata.fgmax_data.num_fgmax_val = 1 # Save depth only 1
-    #fgmax_files.append('fgmax5.txt')
-    #rundata.fgmax_data.num_fgmax_val = 1 # Save depth only 1
-    #fgmax_files.append('fgmax6.txt')
-    #rundata.fgmax_data.num_fgmax_val = 1 # Save depth only 1
 
     # ================
     #  Set Surge Data
