@@ -3,8 +3,8 @@
 This repository is developed for storm surge simulation of geoclaw with user-defined wind and slp fields.
 
 <p align="center">
-<img src="https://github.com/hydrocoast/wrfclaw/blob/master/fig/sample_surface.gif", width="400">
-<img src="https://github.com/hydrocoast/wrfclaw/blob/master/fig/sample_gauges.svg", width="450">
+<img src="https://github.com/hydrocoast/wrfclaw/blob/master/fig/sample_surface.gif", width="450">
+<img src="https://github.com/hydrocoast/wrfclaw/blob/master/fig/sample_gauges.svg", width="400">
 </p>  
 
 ## Requirements
