@@ -319,9 +319,9 @@ def setrun(claw_pkg='geoclaw'):
     # Bigger region for stability with wind fields, no refinement
     
     # gauges 
-    rundata.gaugedata.gauges.append([1, 2.4, 0.0, 0., 1.e10])
-    rundata.gaugedata.gauges.append([2, 1.8, 0.0, 0., 1.e10])
-    rundata.gaugedata.gauges.append([3, 1.2, 0.0, 0., 1.e10])
+    rundata.gaugedata.gauges.append([1, 2.5, 1.8, 0., 1.e10])
+    rundata.gaugedata.gauges.append([2, 1.5, 1.8, 0., 1.e10])
+    rundata.gaugedata.gauges.append([3, 0.5, 1.8, 0., 1.e10])
 
     #------------------------------------------------------------------
     # GeoClaw specific parameters:
