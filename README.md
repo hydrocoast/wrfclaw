@@ -40,7 +40,7 @@ make .output
 ```
 
 ## License
-MIT
+BSD 3-Clause
 
 ## Authors
 - [Takuya Miyashita](https://github.com/hydrocoast)  miyashita(at)hydrocoast.jp
