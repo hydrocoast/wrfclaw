@@ -42,6 +42,10 @@ make .output
 ## License
 BSD 3-Clause
 
-## Authors
-- [Takuya Miyashita](https://github.com/hydrocoast)  miyashita(at)hydrocoast.jp
-- [Marc Kjerland](https://github.com/MarcKjerland)
+
+## Acknowledgements
+The author would like to thank [Marc Kjerland](https://github.com/MarcKjerland) Ph.D. for collaboration on the early stages of this work.
+
+
+## Author
+- [Takuya Miyashita](https://github.com/hydrocoast)  miyashita (at) hydrocoast.jp
