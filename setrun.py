@@ -64,8 +64,8 @@ def setrun(claw_pkg='geoclaw'):
     clawdata.lower[0] = 0.0    # west longitude
     clawdata.upper[0] = 3.6    # east longitude
 
-    clawdata.lower[1] = 0.0    # south latitude
-    clawdata.upper[1] = 3.6    # north latitude
+    clawdata.lower[1] = -1.8    # south latitude
+    clawdata.upper[1] =  1.8    # north latitude
 
     # Number of grid cells:
     clawdata.num_cells[0] = 30
@@ -110,7 +110,7 @@ def setrun(claw_pkg='geoclaw'):
     # The solution at initial time t0 is always written in addition.
 
     clawdata.output_style = 1
-    clawdata.tfinal = 6*3600 
+    clawdata.tfinal = 48*3600 
 
     if clawdata.output_style==1:
         # Output nout frames at equally spaced times up to tfinal:
@@ -159,7 +159,8 @@ def setrun(claw_pkg='geoclaw'):
     clawdata.dt_initial = 0.2
 
     # Max time step to be allowed if variable dt used:
-    clawdata.dt_max = 1e+99
+    #clawdata.dt_max = 1e+99
+    clawdata.dt_max = 6.0e+2
 
     # Desired Courant number if variable dt used, and max to allow without
     # retaking step with a smaller dt:
@@ -226,11 +227,11 @@ def setrun(claw_pkg='geoclaw'):
     #   2 => periodic (must specify this at both boundaries)
     #   3 => solid wall for systems where q(2) is normal velocity
 
-    clawdata.bc_lower[0] = 'wall'
-    clawdata.bc_upper[0] = 'wall'
+    clawdata.bc_lower[0] = 'wall' # west
+    clawdata.bc_upper[0] = 'wall' # east 
 
-    clawdata.bc_lower[1] = 'wall'
-    clawdata.bc_upper[1] = 'wall'
+    clawdata.bc_lower[1] = 'wall' # south
+    clawdata.bc_upper[1] = 'wall' # north
 
     # Specify when checkpoint files should be created that can be
     # used to restart a computation.
@@ -261,12 +262,12 @@ def setrun(claw_pkg='geoclaw'):
     amrdata = rundata.amrdata
 
     # max number of refinement levels:
-    amrdata.amr_levels_max = 5
+    amrdata.amr_levels_max = 3
 
     # List of refinement ratios at each level (length at least mxnest-1)
-    amrdata.refinement_ratios_x = [2,3,4,5,6]
-    amrdata.refinement_ratios_y = [2,3,4,5,6]
-    amrdata.refinement_ratios_t = [2,3,4,5,6]
+    amrdata.refinement_ratios_x = [1,2,3]
+    amrdata.refinement_ratios_y = [1,2,3]
+    amrdata.refinement_ratios_t = [1,2,3]
 
 
     # Specify type of each aux variable in amrdata.auxtype.
@@ -319,9 +320,9 @@ def setrun(claw_pkg='geoclaw'):
     # Bigger region for stability with wind fields, no refinement
     
     # gauges 
-    rundata.gaugedata.gauges.append([1, 2.5, 1.8, 0., 1.e10])
-    rundata.gaugedata.gauges.append([2, 1.5, 1.8, 0., 1.e10])
-    rundata.gaugedata.gauges.append([3, 0.5, 1.8, 0., 1.e10])
+    rundata.gaugedata.gauges.append([1, 2.5, 0.0, 0., 1.e10])
+    rundata.gaugedata.gauges.append([2, 1.5, 0.0, 0., 1.e10])
+    rundata.gaugedata.gauges.append([3, 0.5, 0.0, 0., 1.e10])
 
     #------------------------------------------------------------------
     # GeoClaw specific parameters:

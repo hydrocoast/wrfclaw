@@ -94,11 +94,13 @@ include $(CLAWMAKE)
 
 
 # Construct the topography data
-.PHONY: all
+.PHONY: all storm
 
 -all:
 	$(MAKE) .plots
 	$(MAKE) .htmls
 
+storm:
+	tar -zxvf forcing/storm.tgz -C forcing
 
 ### DO NOT remove this line - make depends on it ###

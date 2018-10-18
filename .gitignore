@@ -16,8 +16,4 @@ xgeoclaw
 .output
 *.swt*
 *.con
-!1d.con
-!slp_d01.swt
-!u10_d01.swt
-!v10_d01.swt
 

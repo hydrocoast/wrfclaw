@@ -36,6 +36,7 @@ Test simulations can be implemented by
 make clobber
 make .exe
 make .data
+make storm
 make .output
 ```
 
