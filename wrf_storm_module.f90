@@ -115,7 +115,7 @@ contains
             storm%data_path_root = './'
         endif
         storm_data_path = trim(storm%data_path_root) // "1d.con"
-        print *,'Reading SuWAT config data file ',trim(storm_data_path)
+        print *,'Reading storm config data file ',trim(storm_data_path)
         open(unit=l_file,file=storm_data_path,status='old', &
                 action='read',iostat=iostatus)
         if (iostatus /= 0) then
@@ -124,11 +124,7 @@ contains
         endif            
 
         ! Read config file for num_lons, num_lats
-        ! Skip lines 1-11
-        do i = 1, 11
-            read(l_file, *, iostat=iostatus)
-        end do
-        ! Line 12 
+        ! Line 1 
         read(l_file, *, iostat=iostatus) storm%num_lons, storm%num_lats
 
         ! Allocate memory for lat & lon coords and u/v/p fields
@@ -142,14 +138,9 @@ contains
         allocate(storm%v(storm%num_lons,storm%num_lats))
         allocate(storm%p(storm%num_lons,storm%num_lats))
 
-        ! Read latitude and longitude data, lines 21-24
-        ! Skip lines 13-22
-        do i = 13, 22
-            read(l_file, *, iostat=iostatus)
-        end do
-        ! Line 23, lower left corner and dy
+        ! Line 2, lower left corner and dy
         read(l_file, *, iostat=iostatus) storm%ll_lon, storm%ll_lat, storm%dy
-        ! Line 24, upper right corner and dx
+        ! Line 3, upper right corner and dx
         read(l_file, *, iostat=iostatus) storm%ur_lon, storm%ur_lat, storm%dx
         close(l_file)
 
