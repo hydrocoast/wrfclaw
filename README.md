@@ -1,11 +1,14 @@
 # GeoClaw with WRF
 ## Overview
-This repository is developed for storm surge simulation of geoclaw with user-defined wind and slp fields.
-
+This repository is developed for storm surge simulation of geoclaw with user-defined wind and SLP fields.  
+Here is an example of the simulation with uniform and constant wind field which blows from west to east.
 <p align="center">
 <img src="https://github.com/hydrocoast/wrfclaw/blob/master/fig/sample_surface.gif", width="450">
 <img src="https://github.com/hydrocoast/wrfclaw/blob/master/fig/sample_gauges.svg", width="400">
 </p>  
+<div style="text-align: right;">
+plotted by [visclaw_julia](https://github.com/hydrocoast/visclaw_julia/)
+</div>
 
 ## Requirements
 - [clawpack](https://github.com/clawpack/clawpack) v5.4.1  
@@ -39,6 +42,15 @@ make storm
 make .data
 make .output
 ```
+
+## Ongoing and Future Work
+Wind and SLP should be dumped at open boundaries when the storm field covers the boundaries of simulation.   
+The sources on boundary condition are now being developed to adopt this dumping effect.  
+
+<div style="text-align: center;">
+<img src="https://github.com/hydrocoast/wrfclaw/blob/master/fig/sample_surface_open.gif", width="450">
+<img src="https://github.com/hydrocoast/wrfclaw/blob/master/fig/sample_gauges_open.svg", width="400">
+</div>
 
 ## License
 BSD 3-Clause
