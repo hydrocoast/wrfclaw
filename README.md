@@ -6,9 +6,7 @@ Here is an example of the simulation with uniform and constant wind field which 
 <img src="https://github.com/hydrocoast/wrfclaw/blob/master/fig/sample_surface.gif", width="450">
 <img src="https://github.com/hydrocoast/wrfclaw/blob/master/fig/sample_gauges.svg", width="400">
 </p>  
-<div style="text-align: right;">
 plotted by [visclaw_julia](https://github.com/hydrocoast/visclaw_julia/)
-</div>
 
 ## Requirements
 - [clawpack](https://github.com/clawpack/clawpack) v5.4.1  
