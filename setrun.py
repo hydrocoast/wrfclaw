@@ -227,8 +227,8 @@ def setrun(claw_pkg='geoclaw'):
     #   2 => periodic (must specify this at both boundaries)
     #   3 => solid wall for systems where q(2) is normal velocity
 
-    clawdata.bc_lower[0] = 'wall' # west
-    clawdata.bc_upper[0] = 'wall' # east 
+    clawdata.bc_lower[0] = 'extrap' # west
+    clawdata.bc_upper[0] = 'extrap' # east 
 
     clawdata.bc_lower[1] = 'wall' # south
     clawdata.bc_upper[1] = 'wall' # north
