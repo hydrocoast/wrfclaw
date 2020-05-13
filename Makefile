@@ -70,7 +70,7 @@ include $(GEOLIB)/Makefile.geoclaw
 
 EXCLUDE_MODULES = \
     $(GEOLIB)/surge/storm_module.f90 \
-
+    $(GEOLIB)/surge/data_storm_module.f90 \
 EXCLUDE_SOURCES = \
 
 # ----------------------------------------
@@ -80,8 +80,8 @@ EXCLUDE_SOURCES = \
 RIEMANN = $(CLAW)/riemann/src
 
 MODULES = \
-  wrf_storm_module.f90 \
-  storm_module.f90 \
+  ./wrfclaw_module_v5.7.0/data_storm_module_wrfclaw.f90 \
+  ./wrfclaw_module_v5.7.0/storm_module_wrfclaw.f90 \
 
 SOURCES = \
   $(RIEMANN)/rpn2_geoclaw.f \

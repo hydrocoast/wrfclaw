@@ -9,12 +9,28 @@ that will be read in by the Fortran code.
 
 from __future__ import absolute_import
 from __future__ import print_function
+
 import os
 import datetime
+import shutil
+import gzip
 
 import numpy as np
 
-#------------------------------
+from clawpack.geoclaw.surge.storm import Storm
+import clawpack.clawutil as clawutil
+
+
+# Time Conversions
+def days2seconds(days):
+    return days * 60.0**2 * 24.0
+
+
+# Scratch directory for storing topo and dtopo files:
+scratch_dir = os.path.join(os.environ["CLAW"], 'geoclaw', 'scratch')
+
+
+# ------------------------------
 def setrun(claw_pkg='geoclaw'):
 #------------------------------
 
@@ -68,6 +84,7 @@ def setrun(claw_pkg='geoclaw'):
     clawdata.upper[1] =  1.8    # north latitude
 
     # Number of grid cells:
+    degree_factor = 4  # (0.25º,0.25º) ~ (25237.5 m, 27693.2 m) resolution
     clawdata.num_cells[0] = 30
     clawdata.num_cells[1] = 30
 
@@ -242,15 +259,15 @@ def setrun(claw_pkg='geoclaw'):
         # Do not checkpoint at all
         pass
 
-    elif clawdata.checkpt_style == 1:
+    elif np.abs(clawdata.checkpt_style) == 1:
         # Checkpoint only at tfinal.
         pass
 
-    elif clawdata.checkpt_style == 2:
-        # Specify a list of checkpoint times.  
-        clawdata.checkpt_times = [0.1,0.15]
+    elif np.abs(clawdata.checkpt_style) == 2:
+        # Specify a list of checkpoint times.
+        clawdata.checkpt_times = [0.1, 0.15]
 
-    elif clawdata.checkpt_style == 3:
+    elif np.abs(clawdata.checkpt_style) == 3:
         # Checkpoint every checkpt_interval timesteps (on Level 1)
         # and at the final time.
         clawdata.checkpt_interval = 5
@@ -425,7 +442,7 @@ def setgeo(rundata):
     
     # Storm parameters
     data.storm_type = 1 # Type of storm
-    data.storm_type = 4 # Explicit storm fields. See ./wrf_storm_module.f90
+    data.storm_type = -1 # Explicit storm fields. See ./wrf_storm_module.f90
     #data.landfall = 3600.0
     data.display_landfall_time = True
 
