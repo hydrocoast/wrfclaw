@@ -29,11 +29,10 @@ NC_LINK_CMD = $(shell $(NF_CONFIG) --flibs)
 NC_LINK_CMD += $(shell $(NF_CONFIG) --cflags)
 
 # Compiler flags
-export OMP_NUM_THREADS=1
 MPFLAG = -fopenmp
 NCFLAGS = -DNETCDF $(NC_LINK_CMD) 
 # Debugging & profiling options
-DEBUG = 1# uncomment to debug
+#DEBUG = 1# uncomment to debug
 #PROFILE = 1# uncomment for profiling
 #
 ifeq ($(DEBUG),1)
@@ -69,9 +68,13 @@ include $(GEOLIB)/Makefile.geoclaw
 # ---------------------------------------
 
 EXCLUDE_MODULES = \
+    $(GEOLIB)/surge/data_storm_module.f90 \
     $(GEOLIB)/surge/storm_module.f90 \
+    $(GEOLIB)/gauges_module.f90 \
+    $(GEOLIB)/multilayer/multilayer_module.f90 \
 
 EXCLUDE_SOURCES = \
+    $(AMRLIB)/outmsh.f \
 
 # ----------------------------------------
 # List of custom sources for this program:
@@ -80,25 +83,22 @@ EXCLUDE_SOURCES = \
 RIEMANN = $(CLAW)/riemann/src
 
 MODULES = \
-  wrf_storm_module.f90 \
-  storm_module.f90 \
+  ./mod/data_storm_module_wrfclaw.f90 \
+  ./mod/storm_module_wrfclaw.f90 \
+  $(GEOLIB)/gauges_module.f90 \
+  $(GEOLIB)/multilayer/multilayer_module.f90 \
 
 SOURCES = \
   $(RIEMANN)/rpn2_geoclaw.f \
   $(RIEMANN)/rpt2_geoclaw.f \
   $(RIEMANN)/geoclaw_riemann_utils.f \
+  ./src/outmsh.f \
 
 #-------------------------------------------------------------------
 # Include Makefile containing standard definitions and make options:
 include $(CLAWMAKE)
 
-
-# Construct the topography data
-.PHONY: all storm
-
--all:
-	$(MAKE) .plots
-	$(MAKE) .htmls
+.PHONY: storm
 
 storm:
 	tar -zxvf forcing/storm.tgz -C forcing
