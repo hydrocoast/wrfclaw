@@ -1,7 +1,7 @@
 # GeoClaw with WRF
 ## Overview
 This repository is developed for storm surge simulation of geoclaw with user-defined wind and SLP fields.  
-Here is an example of the simulation with uniform and constant wind field which blows from west to east (plotted by [visclaw_julia](https://github.com/hydrocoast/visclaw_julia)
+Here is an example of the simulation with uniform and constant wind field which blows from west to east (plotted by [visclaw_julia](https://github.com/hydrocoast/VisClaw.jl)
 ).
 <p align="center">
 <img src="https://github.com/hydrocoast/wrfclaw/blob/master/fig/sample_surface.gif", width="450">
@@ -9,8 +9,7 @@ Here is an example of the simulation with uniform and constant wind field which 
 </p>
 
 ## Requirements
-- [clawpack](https://github.com/clawpack/clawpack) v5.4.1  
-This repo doesn't support clawpack v5.5.0 yet.
+- [clawpack](https://github.com/clawpack/clawpack) v5.7.1  
 - NetCDF4 libraries ([netcdf-c](https://github.com/Unidata/netcdf-c) and [netcdf-fortran](https://github.com/Unidata/netcdf-fortran))
 
 ## Usage
@@ -35,10 +34,10 @@ Then `$CLAW/geoclaw/src/python/geoclaw/data.py` was updated and original `data.p
 Test simulations can be implemented by
 ```shell
 make clobber
-make .exe
+make
 make storm
-make .data
-make .output
+make data
+make output
 ```
 
 ## Ongoing and Future Work
