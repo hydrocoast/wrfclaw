@@ -22,13 +22,6 @@ echo $PYTHONPATH # top directory of your clawpack
 echo $FC # Fortran compiler
 echo $NETCDF_F_ROOT # directory of your netcdf-fortran
 ```  
-- modify `data.py`  
-The variable `storm_type` is updated and the new type 4 is defined.  
-In order to avoid errors caused by this update, run  
-```shell
-./replace_datapy.sh
-```
-Then `$CLAW/geoclaw/src/python/geoclaw/data.py` was updated and original `data.py` was saved as `data.py_org`.
 
 - run a test simulation  
 Test simulations can be implemented by
