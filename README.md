@@ -1,7 +1,7 @@
 # GeoClaw with WRF
 ## Overview
 This repository is developed for storm surge simulation of geoclaw with user-defined wind and SLP fields.  
-Here is an example of the simulation with uniform and constant wind field which blows from west to east (plotted by [visclaw_julia](https://github.com/hydrocoast/VisClaw.jl)
+Here is an example of the simulation with uniform and constant wind field which blows from west to east (plotted by [VisClaw.jl](https://github.com/hydrocoast/VisClaw.jl)
 ).
 <p align="center">
 <img src="https://github.com/hydrocoast/wrfclaw/blob/master/fig/sample_surface.gif", width="450">
