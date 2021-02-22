@@ -15,7 +15,7 @@ Here is an example of the simulation with uniform and constant wind field which 
 ## Usage
 - install the required libraries and packages  
 - set the environmental variables  
-You can check whether the variables are set appropriately by running the following commands in your shell.
+You can check variables by the following commands.
 ```shell
 echo $CLAW # top directory of your clawpack
 echo $PYTHONPATH # top directory of your clawpack
